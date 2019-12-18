@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .body{
+        width: 125px;
+        height: 125px;
+        background-color: white;
+        border:15px solid #ed6e46;
+        border-radius: 50%;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+
+    }
+    .arm, .arm2{
+        width: 10px;
+        height: 230px;
+        background-color: gray;
+        border-radius: 50px;
+        transform: rotate(30deg);
+        position: absolute;
+        top: -27px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    .arm2{
+        transform: rotate(-30deg)
+    }
+    .bell, .bell2{
+        width: 65px;
+        margin: auto;
+        height: 35px;
+        background-color: #ed6eed;
+        border-radius: 50% 50% 10% 10%;
+        transform: rotate(30deg);
+        position: absolute;
+        top: -185px;
+        left: 90px;
+        right: 0;
+        bottom: 0;
+
+    }
+    .bell2{
+        left: -90px;
+        transform: rotate(-30deg)
+    }
+    .hammer{
+        width: 3px;
+        height: 30px;
+        background-color: gray;
+        position: absolute;
+        margin: auto;
+        top: -185px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+
+    }
+    .hammer:before{
+        content: '';
+        display: block;
+        width: 15px;
+        height: 5px;
+        border-radius: 50px;
+        background-color: gray;
+        position: absolute;
+        left: -6px;
+    }
+    .handle{
+        width: 75px;
+        height: 30px;
+        border:8px solid gray;
+        border-bottom: 8px solid transparent;
+        border-radius: 50px 50px 0 0;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: -250px;
+        
+    }
+    .line, .line2, .line3, .line4, .line5, .line6{
+        width: 6px;
+        height: 126px;
+        background-color: gray;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .line2{
+        transform: rotate(90deg);
+        
+    }
+    .line3{
+        transform: rotate(30deg);
+        width: 2px;
+    }
+    .line4{
+        transform: rotate(-30deg);
+        width: 2px;
+    }
+    .line5{
+        transform: rotate(60deg);
+        width: 2px;
+    }
+    .line6{
+        transform: rotate(-60deg);
+        width: 2px;
+    }
+    .body2{
+        width: 105px;
+        height: 105px;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        bottom: 0;
+
+    }
+    .hour, .minute, .second{
+        width: 8px;
+        height: 35px;
+        background-color: #f8b65b;
+        
+        position: absolute;
+        border-radius: 50px;
+        margin: auto;
+        top: 0;
+        left: -30px;
+        bottom: 0;
+        right: 0;
+        transform: rotate(90deg);
+    }
+    .minute{
+        top: -50px;
+        left: 0px;
+        height: 50px;
+        transform: none;
+        transform-origin: bottom;
+        animation: tick-tock 3600s steps(60,end) infinite;
+        position: absolute
+    }
+    
+    .center{
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: #ed6e46;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .second{
+        top:0px;
+        left: 0px;
+        background-color: #333;
+        height: 50px;
+        width: 2px;
+        transform: none;
+        transform-origin: bottom;
+        animation: tick-tock 60s steps(60,end) infinite;
+        bottom: 0;
+        right: 0;
+        margin-bottom: 340px;
+
+    }
+    @keyframes tick-tock{
+        to{
+            transform: rotate(360deg);
+        }
+    }
+
+
+</style>
+<body>
+    <div class="handle"></div>
+    <div class="arm"></div>
+    <div class="arm2"></div>
+    <div class="body"></div>
+    <div class="bell"></div>
+    <div class="bell2"></div>
+    <div class="hammer"></div>
+    <div class="line"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+    <div class="line4"></div>
+    <div class="line5"></div>
+    <div class="line6"></div>
+    <div class="body2"></div>
+     <div class="hour"></div>
+    <div class="minute"></div>
+    <div class="second"></div>
+    <div class="center"></div>
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

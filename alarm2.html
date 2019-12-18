@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alarm</title>
+</head>
+<style>
+#container{
+border-radius: 50%;
+background-color: gainsboro;
+width: 300px;
+height: 300px;
+margin: auto;
+border: 15px solid blueviolet;
+margin-top: 90px;
+}
+.line{
+    width: 65px;
+        margin: auto;
+        height: 35px;
+        background-color: #ed6eed;
+        border-radius: 50% 50% 10% 10%;
+        transform: rotate(30deg);
+        position: absolute;
+        top: -500px;
+        left: 90px;
+        right: 0;
+        bottom: 0;
+}
+</style>
+<body>
+    <div class="line"></div>
+    <div id="container">
+    <input type="datetime-local" id="alarmTime" style="height: 50px; background-color:coral; border:none; border-radius: 20px; margin-top: 100px; margin-left: 50px;"><br><br> 
+   <button onclick="setAlarm(this)" id="alarmButton" style="border: none; height:50px; border-radius: 10px; margin-left: 120px; background-color: coral;">set Alarm</button>
+   <div id="alarmOptions" style="display:none;">
+    <button onclick="snooze();"> snooze 5 minutes</button style="background-color">
+    <button onclick="stopalarm()">stop alarm</button>
+
+   </div>
+</div>
+</body>
+<script>
+    var alarmSound= new Audio();
+    alarmSound.src='img/ko gbagbe re.mp3';
+    var alarmTimer;
+function setAlarm(button){
+    var as=document.getElementById('alarmTime').valueAsNumber;
+    if(isNaN(as)){
+        alert('invalid date');
+        return;
+    }
+    var alarm= new Date(as);
+    var alarmTime =new Date(alarm.getFullYear(), alarm.getUTCMonth(), alarm.getUTCDate(), alarm.getUTCHours(), alarm.getUTCMinutes(), alarm.getUTCSeconds());
+    var differenceInMs=alarmTime.getTime()-(new Date()).getTime();
+    if (differenceInMs < 0){
+        alert('specified time is past');
+        return;
+    }
+   alarmTimer= setTimeout(initAlarm, differenceInMs);
+    button.innerText='cancel Alarm';
+    button.setAttribute('onclick','cancelAlarm(this);');
+}
+
+function cancelAlarm(button){
+    button.innerText='set Alarm';
+    button.setAttribute('onclick','setAlarm(this);');
+    clearTimeout(alarmTimer);
+}
+
+function initAlarm(){
+alarmSound.play();
+document.getElementById('alarmOptions').style.display='';
+}
+
+function stopalarm(){
+    alarmSound.pause();
+    alarmSound.currentTime=0;
+    document.getElementById('alarmOptions').style.display="display";
+    cancelAlarm(document.getElementById('alarmButton'));
+}
+function snooze(){
+    stopalarm();;
+    setTimeout(initAlarm, 36000);
+}
+// console.log(alarmOption)
+</script>
+</html>
